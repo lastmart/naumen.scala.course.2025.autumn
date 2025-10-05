@@ -7,15 +7,15 @@ class EmptyCell extends Cell {
   override def toString: String = "empty"
 }
 
-case class NumberCell(value: Int) extends Cell {
+class NumberCell(value: Int) extends Cell {
   override def toString: String = s"$value"
 }
 
-case class StringCell(value: String) extends Cell {
+class StringCell(value: String) extends Cell {
   override def toString: String = value
 }
 
-case class ReferenceCell(column: Int, row: Int, table: Table) extends Cell {
+class ReferenceCell(val column: Int, val row: Int, table: Table) extends Cell {
   override def toString: String =
     referenceToString(column, row, new mutable.HashSet[Cell]())
 
